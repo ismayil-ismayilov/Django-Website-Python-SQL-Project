@@ -1,13 +1,18 @@
 # Review-website---Python-SQL-Project
-The website to post a review about Mediamarkt stores in Germany.
-The website is built on Django Framework. 
+- - - 
+### Info
+The website to post a review about Mediamarkt stores in Germany. The website is built on Django Framework. 
+
+### Requirements
 The main goal of the project to make a fully functioning website:
     - sign up, login and logout (certain pages should have access only to logged in users)
     - obtain access to full functionality of the application using web/windows interface
     - connect and operate on the SQLite database:
         * min number of tables equals 5
         * SQL queries (incl. complex selects [based on 3 tables], indexes, triggers, views)
-          
+
+
+### Project Description
 Below is a short project description. You may find whole project report in the PDF file.
 
 A signed up and logged in user has an access to a page where it is possible to review a Media Markt department. For that, he has to choose City and Media Markt Store, and regarding Department.
