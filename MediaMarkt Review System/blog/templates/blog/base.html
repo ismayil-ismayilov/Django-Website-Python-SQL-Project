@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+
+    
+
+    {% if title %}
+        <title>Mediamarkt Review- {{title}}</title> 
+    {% else %}
+        <title>Mediamarkt Review</title> 
+    {%endif%}
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-lg bg-steel fixed-top">
+        <style> 
+          .navbar {
+            box-shadow: 0px 2px 5px #777
+        } </style>
+        <a class="navbar-brand" href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Media_Markt_logo.svg" width="150  " height="50" alt="" ></a>
+      
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item nav-link" target="_blank" href="http://www.mediamarkt.com">Official Website</a>
+            </li>
+           
+            
+          </ul>
+              <!-- Navbar Right Side -->
+              <div class="navbar-nav">
+                {% if user.is_authenticated %}
+                <a class="nav-item nav-link" href="{% url 'Profile' %}">Profile</a>
+                <a class="nav-item nav-link" href="{% url 'Logout' %}">Logout</a>
+                {% else %}
+                  <a class="nav-item nav-link" href="{% url 'Login' %}">Login</a>
+                  <a class="nav-item nav-link" href="{% url 'Register' %}">Register</a>
+                {% endif %}
+              </div>          
+        </div>
+      </nav>
+    </header>
+      <main role="main" class="container">
+        <div class="row">
+          <div class="">
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+            {% block content %}{% endblock %}
+          </div>
+          <div class="col-md-4">
+          
+          </div>
+        </div>
+      </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "blog/base.html"%}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+    <div>
+        <div class="main">
+            <h1 style=""> <b> Welcome to the MediaMarkt Service Quality Review System</b> </h1>
+            <form action="add/" method="get" target="_blank">
+                <button class="mainbutton btn btn-primary btn-lg" type="submit">Submit a Review</button>
+             </form>
+        </div>
+    </div>
+    <div class="main2">
+        <p class="maintext"> Please click on the <b> Submit a Review</b> button to review MediaMarkt Departments.</p>
+        <p class="maintext"> <b><a href="{% url 'person_add' %}">Review submission</a></b> and <b><a href="{% url 'person_changelist' %}">Review list</a></b> are only available for the <b> registered </b> users. You will be required to <b><a href="{% url 'Login' %}">log in</a></b> to your account.</p>
+        <p class="maintext"> Unregistrated visitors may see <b><a href="{% url 'review-average' %}">Mediamarkt rating</a></b> by <b>city</b>, <b>store</b> and <b>department</b> based on customer reviews.</p>
+    </div>
+    
+</body>
+
+</html>
+{% endblock content %}

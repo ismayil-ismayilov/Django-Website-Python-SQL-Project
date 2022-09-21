@@ -1,0 +1,53 @@
+{% extends "blog/base.html"%}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <div class="" id="rating_list">
+    <div class="content-section">
+    <p>
+      <form id="review_list" action="/add" method="get" target="_blank">
+        <button class="mainbutton4" type="">Add a Review</button>
+     </form>
+    </p>
+    <br>
+    <p class="review_list_text">
+      Only the review authors may <b>change/edit</b> their reviews by clicking on their names.
+    </p>
+    <p class="review_list_text3">
+      Users are not allowed to delete the reviews due to the transparency. Please, contact to <b>admin@mmrewiew.com</b>.
+    </p>
+    <p class="review_list_text2">Check <b><a href="{% url 'review-average' %}">Mediamarkt rating</a></b> by <b>city</b>, <b>store</b> and <b>department</b>.</p>
+    <table id="table_list">
+      <thead>
+        <tr>
+          <th id="th_list">Name</th>
+          <th id="th_list">Country</th>
+          <th id="th_list">City</th>
+          <th id="th_list">Store</th>
+          <th id="th_list">Department</th>
+          <th id="th_list">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for person in people %}
+          <tr>
+            <td id="td_list"><a href="{% url 'person_change' person.pk %}">{{ person.name }}</a></td>
+            <td id="td_list">{{ person.country.name }}</td>
+            <td id="td_list">{{ person.city.name }}</td>
+            <td id="td_list">{{ person.store.name }}</td>
+            <td id="td_list">{{ person.department.name }}</td>
+            <td id="td_list">{{ person.rating.rating }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="4">There is no review in the system!</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

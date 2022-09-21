@@ -1,0 +1,51 @@
+{% extends "blog/base.html"%}
+{% block content %}
+
+<!DOCTYPE html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/path/to/cdn/jquery.slim.min.js">
+  </script>
+  <script src="jquery.chained.selects.js"></script>
+  <script>
+    $(document).ready(function()
+    {
+      var $countryvar=$("#country");
+          $cityvar=$("#city");
+  
+          $options=$cityvar.find('option');
+          $countryvar.on('change', function()
+          {
+            $cityvar.html($options.filter('[value="'+this.value+'"]'));
+          }).trigger('change');
+    });
+  </script>
+</head>
+<body>
+  <div class="" id="content1">
+    <div class="content-section">
+      <form action="">
+
+        <select id="country">
+          <option disabled selected="true"> Select a country </option> 
+          {% for country in Countrydata %}
+          <option value="{{country.id_country}}">{{country.Name}}</option>
+          {% endfor %}
+        </select>
+        <br><br>
+        <select id="city" >
+          <option disabled selected="true"> Select a city </option> 
+          {% for city in Citydata %}
+          <option value="{{city.id_country}}">{{city.Name}}</option>
+          {% endfor %}
+        </select>
+        <br><br>
+        <input class="btn btn-primary" type="submit" value="Search">
+        
+      </form>
+    </div>
+  </div>
+</body>
+
+{% endblock content %}

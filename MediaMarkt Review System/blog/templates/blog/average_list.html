@@ -1,0 +1,60 @@
+{% extends "blog/base.html"%}
+{% block content %}
+
+<form id="average" action="/list" method="get" target="_blank">
+    <button class="mainbutton4" type="">Rewiews List</button>
+ </form>
+ <form id="average" action="/add" method="get" target="_blank">
+    <button class="mainbutton4" type="">Add a review</button>
+ </form>
+ <br> <br>
+<div class="" id="rating_list">
+    <h3>Average rating for Cities</h3>
+    <div class="content-section">
+        <table id="table_list">
+            <tr> 
+                <th id="th_list">City</th>
+                <th id="th_list">Average rating</th>
+            </tr>
+                {% for row0 in data %} 
+            <tr>                        
+                <td id="td_list">{{ row0.0 }}</td>
+                <td id="td_list">{{ row0.1 }}</td>
+                    {% endfor %}
+            </tr>
+        </table>
+    </div>
+    <br>
+    <h3>Average rating for Stores</h3>
+    <div class="content-section">
+        <table id="table_list">
+            <tr> 
+                <th id="th_list">Store</th>
+                <th id="th_list">Average rating</th>
+            </tr>
+                {% for row0 in data2 %} 
+            <tr>                        
+                <td id="td_list">{{ row0.0 }}</td>
+                <td id="td_list">{{ row0.1 }}</td>
+                    {% endfor %}
+            </tr>
+        </table>
+    </div>
+    <br>
+    <h3>Average rating for Departments</h3>
+    <div class="content-section">
+        <table id="table_list">
+            <tr> 
+                <th id="th_list">Department</th>
+                <th id="th_list">Average rating</th>
+            </tr>
+                {% for row0 in data3 %} 
+            <tr>                        
+                <td id="td_list">{{ row0.0 }}</td>
+                <td id="td_list">{{ row0.1 }}</td>
+                    {% endfor %}
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock content %}
