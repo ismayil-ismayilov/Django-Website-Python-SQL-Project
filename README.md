@@ -1,4 +1,4 @@
-# Review-website---Python-SQL-Project
+# Django Website | Python-SQL-Project
 - - - 
 ### Info
 The website to post a review about Mediamarkt stores, Departments in Germany and Poland. The website is built on Django Framework. 
